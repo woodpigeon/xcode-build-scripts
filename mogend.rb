@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby -w
 
 # This is a script designed to be called from a Build Rule in XCode like so
-#  ruby "${SRCROOT}/xcode_build_scripts/mogend.rb" true NTManagedObject arc
+#  ruby "${SRCROOT}/xcode_build_scripts/mogend.rb" arc NTManagedObject 
 # with the Process set to Data model versioned files (for momd models)
 # and 'Using' set to 'Custom script'
 # In the 'output files' section you should add 
