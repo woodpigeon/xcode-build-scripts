@@ -14,14 +14,16 @@
 
 puts "Running mogend.rb"
 
-# Parse the passed in arguments
+# Arguments
+# 0: name of custom managed object base class
+# 1: any value will trigger ARC output
 baseClassOption = ""
 arcOption = ""
-
 ARGV.each_with_index do |arg, i|
-  arcOption = "--template-var arc=true" if i == 0 && arg = "arc"
-  baseClassOption = "--base-class #{arg}" if i == 1
+  baseClassOption = "--base-class #{arg}" if i == 0
+  arcOption = "--template-var arc=true" if i == 1 && arg = "arc"
 end
+
 
 # Get the current datamodel version - relies on PlistBuddy being installed
 # Maybe we should document how to install this if missing?

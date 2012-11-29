@@ -18,12 +18,14 @@
 baseClassOption = ""
 arcOption = ""
 ARGV.each_with_index do |arg, i|
-  baseClassOption = '--base-class "#{arg}"' if i == 0
-  arcOption = "--template-var arc=true" if i == 1
+  baseClassOption = "--base-class #{arg}" if i == 0
+  arcOption = "--template-var arc=true" if i == 1 && arg = "arc"
 end
+
+
 puts "MOGEN!"
 
-cmd = 'echo /usr/local/bin/mogenerator --model "${INPUT_FILE_PATH}" --output-dir "${INPUT_FILE_DIR}/Models" "#{baseClass}" "#{arcOption}"'
+cmd = 'echo /usr/local/bin/mogenerator --model "${INPUT_FILE_PATH}" --output-dir "${INPUT_FILE_DIR}/Models" "#{baseClassOption}" "#{arcOption}"'
 `echo "#{cmd}"`
 puts `"#{cmd}"`
 
